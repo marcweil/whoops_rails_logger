@@ -25,7 +25,7 @@ module WhoopsRailsLogger
         
         details = {}
         details[:backtrace] = exception.backtrace.collect{ |line|
-          line.sub(/^#{ENV['GEM_HOME']}/, '$GEM_HOME').sub(/^#{Rails.root}/, '$Rails.root')
+          line.sub(/^#{ENV['GEM_HOME']}/, '$GEM_HOME').sub(/^#{Rails.root.to_s}/, '$Rails.root')
         }
 
         details[:http_host]      = rack_env["HTTP_HOST"]        
